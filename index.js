@@ -33,6 +33,7 @@ app.post('/webhook', function (req, res) {
             var response;
             $http.get(url).then(function (res) {
                 response = res;
+                sendMessage(event.sender.id, {text: "duuuudeeeee"});
                 sendMessage(event.sender.id, {text: "hi " + response.first_name});
             });          
         }
