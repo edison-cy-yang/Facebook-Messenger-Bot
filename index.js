@@ -28,15 +28,15 @@ app.post('/webhook', function (req, res) {
     for (i = 0; i < events.length; i++) {
         var event = events[i];
         if (event.message && event.message.text) {
-            // sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-            var url = "https://graph.facebook.com/v2.6/<" + event.sender.id + ">?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + process.env.PAGE_ACCESS_TOKEN;
-            var response;
-            sendMessage(event.sender.id, {text: "duuuudeeeee " + event.sender.id});
-            $http.get(url).then(function (res) {
-                response = res;               
-                sendMessage(event.sender.id, {text: "duuuudeeeee"});
-                sendMessage(event.sender.id, {text: "hi " + response.first_name});
-            });          
+            sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+            // var url = "https://graph.facebook.com/v2.6/<" + event.sender.id + ">?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + process.env.PAGE_ACCESS_TOKEN;
+            // var response;
+            // sendMessage(event.sender.id, {text: "duuuudeeeee " + event.sender.id});
+            // $http.get(url).then(function (res) {
+            //     response = res;               
+            //     sendMessage(event.sender.id, {text: "duuuudeeeee"});
+            //     sendMessage(event.sender.id, {text: "hi " + response.first_name});
+            // });          
         }
     }
     res.sendStatus(200);
